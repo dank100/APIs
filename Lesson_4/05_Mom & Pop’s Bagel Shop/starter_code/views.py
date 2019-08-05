@@ -18,6 +18,13 @@ app = Flask(__name__)
 #ADD @auth.verify_password here
 
 #ADD a /users route here
+@app.route('/users', methods = ['POST'])
+def newUser():
+    username = request.json.get('username')
+    password = request.json.get('password')
+    if username is "" || password is "":
+        print "Not Valid"
+        abort(400) 
 
 
 
